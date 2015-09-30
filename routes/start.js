@@ -12,6 +12,8 @@ router.post('/', function(req, res, next) {
 
     state.setName(req.body.OPPONENT_NAME);
 
+    state.setChipCount(req.body.STARTING_CHIP_COUNT);
+
   res.json({message: 'post start'})
 });
 

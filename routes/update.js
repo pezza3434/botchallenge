@@ -10,6 +10,7 @@ router.post('/', function(req, res, next) {
     });
 
     if (req.body.COMMAND === 'CARD') {
+        state.resetRound();
         state.setCard(req.body.DATA)
     }
 
@@ -19,6 +20,10 @@ router.post('/', function(req, res, next) {
 
     if(req.body.COMMAND === 'RECEIVE_BUTTON') {
         state.setBlind(false);
+    }
+
+    if (req.body.COMMAND === 'OPPONENT_MOVE') {
+        state.setOpponentMove(req.body.DATA);
     }
 
   res.json({message: 'update route'})
