@@ -13,6 +13,14 @@ router.post('/', function(req, res, next) {
         state.setCard(req.body.DATA)
     }
 
+    if(req.body.COMMAND === 'POST_BLIND') {
+        state.setBlind(true);
+    }
+
+    if(req.body.COMMAND === 'RECEIVE_BUTTON') {
+        state.setBlind(false);
+    }
+
   res.json({message: 'update route'})
 });
 

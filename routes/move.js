@@ -5,7 +5,9 @@ var state = require('../state');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 
-    console.log(state.getCard());
+    if (state.getBlind()) {
+        return res.send('CALL');
+    }
 
     if (state.getCard() < 9) {
         return res.send('FOLD')
